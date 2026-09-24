@@ -45,11 +45,11 @@ The analysis distinguishes **spatial association** from **spatial diffusion**. A
 7. **Predictive validation:** Reserve later years for testing, assess count and zero predictions, and inspect calibration and residual spatial structure.
 8. **Diffusion hypotheses (in development):** Construct and compare alternative connectivity matrices without treating improved fit alone as causal evidence.
 
-The current INLA model code uses `zeroinflatednbinomial0`, a linear year term, and a RW1 year effect. Its probability model and fixed zero-component hyperparameter must be checked before describing it as equivalent to a frequentist hurdle negative binomial model. A frequentist hurdle baseline was fitted separately.
+The current `INLA` model code uses `zeroinflatednbinomial0`, a linear year term, and a RW1 year effect. Its probability model and fixed zero-component hyperparameter must be checked before describing it as equivalent to a frequentist hurdle negative binomial model. A frequentist hurdle baseline was fitted separately.
 
 ## Current Status
 
-Completed analyses include descriptive, spatial, temporal, and distributional diagnostics; queen contiguity; a frequentist hurdle fit; and three INLA specifications with temporal-only, municipal IID, and BYM2 effects. In the reported INLA comparison, BYM2 has the lowest WAIC, DIC, and mean negative log CPO of those three fits. This is an in-sample/model-based comparison and does not establish superiority over the frequentist hurdle model on a temporal holdout.
+Completed analyses include descriptive, spatial, temporal, and distributional diagnostics; queen contiguity; a frequentist hurdle fit; and three `INLA` specifications with temporal-only, municipal IID, and BYM2 effects. In the reported `INLA` comparison, BYM2 has the lowest WAIC, DIC, and mean negative log CPO of those three fits. This is an in-sample/model-based comparison and does not establish superiority over the frequentist hurdle model on a temporal holdout.
 
 The temporal transition-state definitions need to cover the threshold values 2, 5, and 17, and the rank-correlation code needs explicit matching by municipality. Diffusion matrices, their model fits, and temporal out-of-sample validation remain in progress.
 
@@ -69,8 +69,8 @@ Clone **https://github.com/FrancoJPM1991/organized_crime_bayesian_prediction.git
 git clone https://github.com/FrancoJPM1991/organized_crime_bayesian_prediction.git
 cd REPOSITORY_DIRECTORY
 python -m venv .venv
-source .venv/bin/activate  # Windows PowerShell: .venv\Scripts\Activate.ps1
-pip install -r requirements.txt  # Only if the repository includes this file
+source .venv/bin/activate  ps1
+pip install -r requirements.txt   file
 ```
 
 Install R packages according to the repository's R dependency instructions. `INLA` has its own installation source; consult the project's installation instructions for the version used in a reproducible run.
@@ -78,7 +78,7 @@ Install R packages according to the repository's R dependency instructions. `INL
 ### Key libraries used
 
 - **Python:** pandas, NumPy, SciPy, statsmodels, matplotlib, and spatial-analysis packages used in the relevant scripts.
-- **R:** INLA for latent Gaussian spatial models; `pscl` for the frequentist hurdle model.
+- **R:** `INLA` for latent Gaussian spatial models; `pscl` for the frequentist hurdle model.
 
 ### Suggested execution order
 
@@ -93,11 +93,8 @@ Run the files that exist in the checked-out repository in dependency order:
 7. Generate comparison tables, posterior summaries, maps, and predictive diagnostics.
 8. When available, build alternative connectivity matrices and run temporal holdout comparisons.
 
-Input data paths in the notebooks are project-relative. Data files and R scripts must be present in their expected locations before these steps can run end to end.
 
 ## Repository Structure
-
-The following layout describes the **intended organization**, not a verified listing of an existing checkout. Adjust names to the actual GitHub repository before publishing this README.
 
 ```text
 organized_crime_bayesian_prediction.git/
@@ -268,6 +265,4 @@ organized_crime_bayesian_prediction.git/
 
 ```
 
-## Data and Reproducibility
 
-Document each data source, extraction date, offense definition, municipal crosswalk, population denominator, and geographic boundary version alongside the pipeline. Do not commit restricted inputs or personal data. Record model-family choices, priors, graph construction, software versions, random seeds, and train/test years for reproducible results.
